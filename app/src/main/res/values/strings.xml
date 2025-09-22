@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Unit5_PizzaRycycle_F25</string>
+    <string name="textview">TextView</string>
+    <string name="pizza">Pizza:</string>
 </resources>

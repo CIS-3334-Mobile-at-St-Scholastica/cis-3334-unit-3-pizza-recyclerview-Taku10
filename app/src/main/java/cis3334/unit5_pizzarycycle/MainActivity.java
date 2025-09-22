@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
@@ -28,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     Chip chipPepperoni, chipChicken, chipGreenPepper;
     TextView textViewSize;
     EditText textOrder;
+    RecyclerView orderRecyclerView;
+    OrderAdapter orderAdapter;
+
     Integer pizzaSize = 1;     // Pizza sizes are 0=Small, 1=Medium, 2=Large, 3=X-large
     final String[] PIZZA_SIZES = {"Small","Medium","Large","X-Large"};
 
@@ -46,10 +50,19 @@ public class MainActivity extends AppCompatActivity {
         chipChicken = findViewById(R.id.chipChicken);
         chipGreenPepper = findViewById(R.id.chipGreenPeppers);
 
+
+
         setupSeekBar();
         setupAddToOrderButton();
         setPlaceOrderButtons();
         setupLiveDataObserver();
+    }
+
+    private void setupRecyclerView() {
+        orderRecyclerView = findViewById(R.id.recyclerViewOrder);
+        orderRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        orderAdapter = new OrderAdapter(getApplication(), mainViewModel);
+        orderRecyclerView.setAdapter(orderAdapter);
     }
 
     /***

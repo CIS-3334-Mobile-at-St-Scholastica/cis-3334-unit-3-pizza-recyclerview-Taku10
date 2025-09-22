@@ -18,6 +18,7 @@ public class Pizza {
     public Integer size;        // size of the pizza as an integer -- sizes are 0=Small, 1=Medium, 2=Large, 3=X-large
     public String strSize;      // size of the pizza as a string
     public String description;  // string description of the pizza for display
+//    public Pizza pizza;
 
     /***
      *  Constructor
